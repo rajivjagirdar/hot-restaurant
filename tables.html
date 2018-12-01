@@ -30,7 +30,7 @@
                       <h4>Current Reservations</h4>
                     </div>
                     <div class="card-body">
-                      <ul id="tableList" class="list-group"></ul>
+                      <ul id="tableData" class="list-group"></ul>
                     </div>
                   </div>
 
@@ -44,5 +44,19 @@
                   </div>
                 </div>
               </div>
+              
+              <script type="text/javascript">
+            
+                  $.get("/api/tabledata/", function(data) {
+                    console.log(data);
+                    if (data) {
+                      $("#stats").show();
+                      $("#resID").text(data.resID);"|"
+                      $("#name").text(data.resName);
+                    }
+                  });
+
+              </script>
+
 </body>
 </html>
